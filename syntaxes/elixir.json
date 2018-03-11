@@ -20,6 +20,12 @@
       "name": "entity.name.type.module.elixir"
     },
     {
+      "begin": "@(spec|type|typep)\\s",
+      "end": "(?=^\\s*(@|def|end|use|alias))",
+      "comment": "Typespecs is treated as documentation",
+      "name": "comment.documentation.typespec.elixir"
+    },
+    {
       "begin": "@(module|type)?doc (~s)?\"\"\"",
       "comment": "@doc with interpolated heredocs",
       "end": "\\s*\"\"\"",
