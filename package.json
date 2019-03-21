@@ -39,6 +39,11 @@
     "configuration": {
       "title": "ElixirLS configuration",
       "properties": {
+        "elixirLS.useWSL": {
+          "description": "Run the language server using Windows Subsystem for Linux",
+          "type": "boolean",
+          "default": false
+        },
         "elixirLS.dialyzerEnabled": {
           "type": "boolean",
           "default": true,

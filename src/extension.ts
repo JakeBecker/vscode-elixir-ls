@@ -14,24 +14,48 @@ import {
   LanguageClientOptions,
   RevealOutputChannelOn,
   ServerOptions,
+  Executable
 } from "vscode-languageclient";
 import { platform } from "os";
 
 export function activate(context: ExtensionContext) {
-  testElixir();
+  const releasePath = context.asAbsolutePath("./elixir-ls-release/");
 
-  const command =
-    platform() == "win32" ? "language_server.bat" : "language_server.sh";
+  let executable: Executable;
+  if (platform() == "win32") {
+    const useWSL = workspace.getConfiguration('elixirLS').get("useWSL");
+    if (useWSL) { vscode.window.showInformationMessage("Launching ElixirLS using WSL"); }
+    testElixir(useWSL);
 
-  const serverOpts = {
-    command: context.asAbsolutePath("./elixir-ls-release/" + command)
-  };
+    if (useWSL) {
+      executable = {
+        command: "wsl",
+        args: ["language_server.sh"],
+        options: {
+          cwd: releasePath
+        }
+      }
+    } else {
+      executable = {
+        command: "language_server.bat",
+        options: {
+          cwd: releasePath
+        }
+      }
+    }
+  } else {
+    testElixir(false);
+    executable = {
+      command: "./language_server.sh",
+      options: {
+        cwd: releasePath
+      }
+    }
+  }
 
-  // If the extension is launched in debug mode then the debug server options are used
-  // Otherwise the run options are used
   let serverOptions: ServerOptions = {
-    run: serverOpts,
-    debug: serverOpts
+    run: executable,
+    debug: executable
   };
 
   // Options to control the language client
@@ -74,9 +98,9 @@ function testElixirCommand(command: String) {
   }
 }
 
-function testElixir() {
-  var testResult = testElixirCommand("elixir");
-  if (testResult === false) {
+function testElixir(useWSL) {
+  var testResult = useWSL ? testElixirCommand("wsl elixir") : testElixirCommand("elixir");
+  if (testResult === false && !useWSL) {
     // Try finding elixir in the path directly
     const elixirPath = shell.which("elixir");
     if (elixirPath) {
@@ -90,7 +114,7 @@ function testElixir() {
     );
     console.warn(
       `Failed to run 'elixir' command. Current process's PATH: ${
-        process.env["PATH"]
+      process.env["PATH"]
       }`
     );
     return false;
