@@ -139,6 +139,16 @@
           ".leex"
         ],
         "configuration": "./leex-language-configuration.json"
+      },
+      {
+        "id": "HTML (Leex)",
+        "aliases": [
+          "HTML (Leex)"
+        ],
+        "extensions": [
+          ".html.leex"
+        ],
+        "configuration": "./leex-language-configuration.json"
       }
     ],
     "grammars": [
@@ -161,6 +171,11 @@
         "language": "Leex",
         "scopeName": "text.elixir",
         "path": "./syntaxes/leex.json"
+      },
+      {
+        "language": "HTML (Leex)",
+        "scopeName": "text.html.elixir",
+        "path": "./syntaxes/html (leex).json"
       }
     ],
     "breakpoints": [
