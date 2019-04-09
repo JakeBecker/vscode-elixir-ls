@@ -20,7 +20,11 @@
     "Debuggers"
   ],
   "activationEvents": [
-    "onLanguage:elixir"
+    "onLanguage:elixir",
+    "onLanguage:eex",
+    "onLanguage:html.eex",
+    "onLanguage:leex",
+    "onLanguage:html.leex"
   ],
   "main": "./out/src/extension",
   "contributes": {
@@ -109,9 +113,9 @@
         "configuration": "./elixir-language-configuration.json"
       },
       {
-        "id": "Eex",
+        "id": "eex",
         "aliases": [
-          "Eex",
+          "EEx",
           "eex"
         ],
         "extensions": [
@@ -120,9 +124,9 @@
         "configuration": "./eex-language-configuration.json"
       },
       {
-        "id": "HTML (Eex)",
+        "id": "html.eex",
         "aliases": [
-          "HTML (Eex)"
+          "HTML (EEx)"
         ],
         "extensions": [
           ".html.eex"
@@ -130,9 +134,9 @@
         "configuration": "./eex-language-configuration.json"
       },
       {
-        "id": "Leex",
+        "id": "leex",
         "aliases": [
-          "Leex",
+          "LiveEEx",
           "leex"
         ],
         "extensions": [
@@ -141,9 +145,9 @@
         "configuration": "./leex-language-configuration.json"
       },
       {
-        "id": "HTML (Leex)",
+        "id": "html.leex",
         "aliases": [
-          "HTML (Leex)"
+          "HTML (LiveEEx)"
         ],
         "extensions": [
           ".html.leex"
@@ -158,22 +162,22 @@
         "path": "./syntaxes/elixir.json"
       },
       {
-        "language": "Eex",
+        "language": "eex",
         "scopeName": "text.elixir",
         "path": "./syntaxes/eex.json"
       },
       {
-        "language": "HTML (Eex)",
+        "language": "html.eex",
         "scopeName": "text.html.elixir",
         "path": "./syntaxes/html (eex).json"
       },
       {
-        "language": "Leex",
+        "language": "leex",
         "scopeName": "text.elixir",
         "path": "./syntaxes/leex.json"
       },
       {
-        "language": "HTML (Leex)",
+        "language": "html.leex",
         "scopeName": "text.html.elixir",
         "path": "./syntaxes/html (leex).json"
       }

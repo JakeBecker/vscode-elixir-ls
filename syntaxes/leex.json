@@ -2,7 +2,7 @@
   "fileTypes": [
     "leex"
   ],
-  "name": "Live EEx",
+  "name": "LiveEEx",
   "patterns": [
     {
       "begin": "<%+#",
