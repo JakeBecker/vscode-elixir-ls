@@ -58,6 +58,10 @@ Erlang:
 - OTP 18 minimum
 - \>= OTP 20 recommended
 
+## Troubleshooting
+
+If ElixirLS isn't working as expected, it may be helpful to inspect the ElixirLS server output. First, you must have an Elixir file open in VSCode. Open VSCode's Errors and Warnings panel, by clicking on its icons in the bottom bar, at the bottom of VSCode's window. At the open panel, select the "Output" pane. In the drop-down filter at the top right side of the pane, select ElixirLS. There, you will see the output of the ElixirLS server.
+
 ## Contributing
 
 Most of the functionality of this extension comes from ElixirLS which is included as a Git submodule in the `elixir-ls` folder. Make sure you clone the repo using `git clone --recursive` or run `git submodule init && git submodule update` after cloning. To launch the extension from VS Code, run the "Launch Extension" launch config.
