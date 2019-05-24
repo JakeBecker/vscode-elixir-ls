@@ -20,11 +20,7 @@
     "Debuggers"
   ],
   "activationEvents": [
-    "onLanguage:elixir",
-    "onLanguage:eex",
-    "onLanguage:html.eex",
-    "onLanguage:leex",
-    "onLanguage:html.leex"
+    "onLanguage:elixir"
   ],
   "main": "./out/src/extension",
   "contributes": {
@@ -76,6 +72,16 @@
           },
           "default": []
         },
+        "elixirLS.dialyzerFormat": {
+          "description": "Formatter to use for Dialyzer warnings",
+          "type": "string",
+          "enum": [
+            "dialyzer",
+            "dialyxir_short",
+            "dialyxir_long"
+          ],
+          "default": "dialyzer"
+        },
         "elixirLS.mixEnv": {
           "type": "string",
           "description": "Mix environment to use for compilation",
@@ -110,10 +116,13 @@
           ".ex",
           ".exs"
         ],
+        "filenames": [
+          "mix.lock"
+        ],
         "configuration": "./elixir-language-configuration.json"
       },
       {
-        "id": "eex",
+        "id": "EEx",
         "aliases": [
           "EEx",
           "eex"
@@ -124,7 +133,7 @@
         "configuration": "./eex-language-configuration.json"
       },
       {
-        "id": "html.eex",
+        "id": "HTML (EEx)",
         "aliases": [
           "HTML (EEx)"
         ],
@@ -134,21 +143,14 @@
         "configuration": "./eex-language-configuration.json"
       },
       {
-        "id": "leex",
-        "aliases": [
-          "LiveEEx",
-          "leex"
-        ],
+        "id": "Live EEx",
         "extensions": [
           ".leex"
         ],
         "configuration": "./leex-language-configuration.json"
       },
       {
-        "id": "html.leex",
-        "aliases": [
-          "HTML (LiveEEx)"
-        ],
+        "id": "HTML (Live EEx)",
         "extensions": [
           ".html.leex"
         ],
@@ -162,22 +164,22 @@
         "path": "./syntaxes/elixir.json"
       },
       {
-        "language": "eex",
+        "language": "EEx",
         "scopeName": "text.elixir",
         "path": "./syntaxes/eex.json"
       },
       {
-        "language": "html.eex",
+        "language": "HTML (EEx)",
         "scopeName": "text.html.elixir",
         "path": "./syntaxes/html (eex).json"
       },
       {
-        "language": "leex",
+        "language": "Live EEx",
         "scopeName": "text.elixir",
         "path": "./syntaxes/leex.json"
       },
       {
-        "language": "html.leex",
+        "language": "HTML (Live EEx)",
         "scopeName": "text.html.elixir",
         "path": "./syntaxes/html (leex).json"
       }
@@ -370,12 +372,12 @@
   },
   "devDependencies": {
     "@types/mocha": "^2.2.33",
-    "@types/node": "^6.0.52",
-    "typescript": "^2.1.5",
-    "vscode": "^1.1.18"
+    "@types/node": "^6.14.4",
+    "typescript": "^2.9.2",
+    "vscode": "^1.1.30"
   },
   "dependencies": {
-    "shelljs": "^0.8.2",
-    "vscode-languageclient": "^4.4.0"
+    "shelljs": "^0.8.3",
+    "vscode-languageclient": "^4.4.2"
   }
 }
