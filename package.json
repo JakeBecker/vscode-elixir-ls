@@ -157,7 +157,13 @@
       {
         "language": "HTML (EEx)",
         "scopeName": "text.html.elixir",
-        "path": "./syntaxes/html (eex).json"
+        "path": "./syntaxes/html (eex).json",
+        "embeddedLanguages": {
+          "text.html": "html",
+          "source.elixir": "elixir",
+          "source.js": "javascript",
+          "source.css": "css"
+        }
       }
     ],
     "breakpoints": [
